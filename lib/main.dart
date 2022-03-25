@@ -1,8 +1,26 @@
+import 'package:expenses/transaction.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(Expenses());
 
 class Expenses extends StatelessWidget {
+
+  final List<Transaction> transactions = [
+    Transaction(
+      'tr-1',
+      'T-shirt',
+      44.4,
+      DateTime.now()
+    ),
+     Transaction(
+      'tr-2',
+      'Laptop bag',
+      44.4,
+      DateTime.now()
+    ),
+  ];
+
+
   @override
   Widget build(BuildContext context) {
     
