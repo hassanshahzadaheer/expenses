@@ -8,6 +8,7 @@ class Expenses extends StatelessWidget {
   final List<Transaction> transactions = [
     Transaction('tr-1', 'T-shirt', 44.4, DateTime.now()),
     Transaction('tr-2', 'Laptop bag', 90.4, DateTime.now()),
+    Transaction('tr-3', 'Back care', 200.89, DateTime.now()),
   ];
 
   @override
@@ -35,18 +36,23 @@ class Expenses extends StatelessWidget {
               elevation: 8,
             ),
             Card(
-              margin: EdgeInsets.all(10.0),
               child: Container(
-                padding: EdgeInsets.all(10),
+                padding: EdgeInsets.all(3),
                 child: Column(
+
                   children: <Widget>[
                     TextField(
-                      decoration: InputDecoration(labelText: 'Title',),
+                      decoration: InputDecoration(labelText: 'Title'),
+                      style: TextStyle(fontSize: 12, color: Colors.black),
                     ),
                     TextField(
                       decoration: InputDecoration(labelText: 'Amount'),
+                      style: TextStyle(fontSize: 12, color: Colors.black),
                     ),
+                    TextButton(onPressed: () {}, child: Text("Submit")),
+                    
                   ],
+                  crossAxisAlignment: CrossAxisAlignment.end
                 ),
               ),
               elevation: 5,
