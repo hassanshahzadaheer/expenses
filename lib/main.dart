@@ -1,5 +1,6 @@
 import 'package:expenses/transaction.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 void main() => runApp(Expenses());
 
@@ -18,7 +19,6 @@ class Expenses extends StatelessWidget {
           backgroundColor: Colors.black,
         ),
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Card(
@@ -34,41 +34,59 @@ class Expenses extends StatelessWidget {
               ),
               elevation: 8,
             ),
+            Card(
+              margin: EdgeInsets.all(10.0),
+              child: Container(
+                padding: EdgeInsets.all(10),
+                child: Column(
+                  children: <Widget>[
+                    TextField(
+                      decoration: InputDecoration(labelText: 'Title',),
+                    ),
+                    TextField(
+                      decoration: InputDecoration(labelText: 'Amount'),
+                    ),
+                  ],
+                ),
+              ),
+              elevation: 5,
+            ),
             Column(
               children: transactions.map((transaction) {
                 return Card(
                   child: Row(
-                    
                     children: <Widget>[
                       Container(
-                        margin: EdgeInsets.symmetric(vertical: 3.0, horizontal: 3.0),
-                        child: Text(transaction.amount.toString(),
-                        style: TextStyle(
-                          color: Colors.deepPurpleAccent,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        margin: EdgeInsets.symmetric(
+                            vertical: 3.0, horizontal: 3.0),
+                        child: Text(
+                          '\Rs ${transaction.amount}',
+                          style: TextStyle(
+                            color: Colors.deepPurpleAccent,
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                         decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black, width: 2.0, style: BorderStyle.solid)
-                        ),
+                            border: Border.all(
+                                color: Colors.black,
+                                width: 2.0,
+                                style: BorderStyle.solid)),
                         padding: EdgeInsets.all(10),
                       ),
                       Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Text(transaction.name,
-                          style: TextStyle(
-                            color: Colors.indigoAccent,
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500
+                          Text(
+                            transaction.name,
+                            style: TextStyle(
+                                color: Colors.indigoAccent,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w500),
                           ),
-                          ),
-                          Text(transaction.date.toString(),
-                          style: TextStyle(
-                            color: Colors.grey
-                          ),
+                          Text(
+                            DateFormat('yyyy-MM-dd').format(transaction.date),
+                            style: TextStyle(color: Colors.grey),
                           ),
                         ],
                       ),
