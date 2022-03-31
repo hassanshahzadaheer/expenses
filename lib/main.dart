@@ -23,24 +23,26 @@ class ExpensesMainScreen extends StatelessWidget {
         title: Text("Expenses Tracker"),
         backgroundColor: Colors.black,
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Card(
-            color: Colors.cyan,
-            shape: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide: BorderSide(color: Colors.black12)),
-            margin: EdgeInsets.all(10.0),
-            child: Container(
-              width: double.infinity,
-              height: 40,
-              child: Text("Show text here"),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Card(
+              color: Colors.cyan,
+              shape: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide(color: Colors.black12)),
+              margin: EdgeInsets.all(10.0),
+              child: Container(
+                width: double.infinity,
+                height: 40,
+                child: Text("Show text here"),
+              ),
+              elevation: 5,
             ),
-            elevation: 5,
-          ),
-          UserTransaction(),
-        ],
+            UserTransaction(),
+          ],
+        ),
       ),
     );
   }
