@@ -9,6 +9,7 @@ class Expenses extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Expenses Tracker",
+      theme: new ThemeData(primaryColor: Color.fromRGBO(58, 66, 86, 1.0)),
       home: ExpensesMainScreen(),
     );
   }
@@ -19,26 +20,27 @@ class ExpensesMainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
+      backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
       appBar: AppBar(
+        elevation: 0.1,
+        backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
         title: Text("Expenses Tracker"),
-        backgroundColor: Colors.black,
       ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Card(
-              color: Colors.cyan,
-              shape: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide(color: Colors.black12)),
-              margin: EdgeInsets.all(10.0),
+              elevation: 8.0,
+              color: Colors.white,
+             margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
               child: Container(
+                decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
                 width: double.infinity,
                 height: 40,
                 child: Text("Show text here"),
               ),
-              elevation: 5,
+              
             ),
             UserTransaction(),
           ],
@@ -47,3 +49,4 @@ class ExpensesMainScreen extends StatelessWidget {
     );
   }
 }
+
