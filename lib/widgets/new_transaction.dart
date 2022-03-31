@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:expenses/widgets/transaction_list.dart';
+import 'package:expenses/widgets/user_transaction.dart';
 
 
 class NewTransaction extends StatelessWidget {
-  
+  final Function getTranscation;
   final inputTitle = TextEditingController();
   final inputAmount = TextEditingController();
+
+
+  NewTransaction(this.getTranscation);
   
   @override
   Widget build(BuildContext context) {
@@ -24,8 +29,10 @@ class NewTransaction extends StatelessWidget {
                    controller: inputAmount,
                   ),
                   TextButton(onPressed: () {
-                    print("Title" + inputTitle.text);
-                    print("Amount " + inputAmount.text);
+                    getTranscation (
+                      inputTitle.text,
+                      double.parse(inputAmount.text),
+                    );                   
                   }, child: Text("Submit")),
                 ], crossAxisAlignment: CrossAxisAlignment.end),
               ),

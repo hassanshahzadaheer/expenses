@@ -37,7 +37,7 @@ class ExpensesMainScreen extends StatelessWidget {
               height: 40,
               child: Text("Show text here"),
             ),
-            elevation: 8,
+            elevation: 5,
           ),
           UserTransaction(),
         ],
