@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:expenses/widgets/transaction_list.dart';
-import 'package:expenses/widgets/user_transaction.dart';
 
-class NewTransaction extends StatelessWidget {
+
+class NewTransaction extends StatefulWidget {
   final Function getTranscation;
-  final inputTitle = TextEditingController();
-  final inputAmount = TextEditingController();
 
   NewTransaction(this.getTranscation);
 
-  
+  @override
+  State<NewTransaction> createState() => _NewTransactionState();
+}
+
+class _NewTransactionState extends State<NewTransaction> {
+  final inputTitle = TextEditingController();
+
+  final inputAmount = TextEditingController();
 
   void submitData() {
     final enteredTitle = inputTitle.text;
@@ -18,10 +23,13 @@ class NewTransaction extends StatelessWidget {
     {
       return;
     }
-    getTranscation(
+    widget.getTranscation(
       enteredTitle,
       enteredAmount,
     );
+
+    Navigator.of(context).pop();
+    
   }
 
   @override
